@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3r6va7c7myr8"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_74qtl"]
+[ext_resource type="Texture2D" uid="uid://bc5g7ktf4y5it" path="res://assets/ball.png" id="2_fkbxy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ushb"]
+radius = 10.989
+
+[sub_resource type="GDScript" id="GDScript_h3ykl"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvnyu"]
+
+[node name="ball" type="CharacterBody2D"]
+script = ExtResource("1_74qtl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.455, 0.455)
+shape = SubResource("CircleShape2D_2ushb")
+script = SubResource("GDScript_h3ykl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fkbxy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = -29.0
+offset_right = 167.0
+offset_bottom = -4.0
+bbcode_enabled = true
+text = "[color=blue]Jimmy Joe[/color]"
+scroll_active = false
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(-0.71, -0.71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.715, 0.715)
+shape = SubResource("CircleShape2D_kvnyu")

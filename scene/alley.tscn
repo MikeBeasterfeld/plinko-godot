@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://jx7drwr3aftr"]
+
+[ext_resource type="Script" path="res://scene/alley.gd" id="1_wynd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0a3c"]
+size = Vector2(20, 49.4404)
+
+[node name="Alley" type="Node2D"]
+script = ExtResource("1_wynd7")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = -12.0
+offset_top = 30.0
+offset_right = 48.0
+offset_bottom = 54.0
+rotation = -1.5708
+bbcode_enabled = true
+text = "DEBUG"
+scroll_active = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 1.265)
+scale = Vector2(-1.385, -1.385)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8.47293)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_d0a3c")
+debug_color = Color(0.811765, 0.411765, 0, 0.419608)
