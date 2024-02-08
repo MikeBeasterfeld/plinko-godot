@@ -20,12 +20,7 @@ func _ready():
 
 func _physics_process(delta):
 	if position.y > 299:
-		velocity = Vector2(0, 0);
-		position.y = -275;
-		if position.x > 175:
-			position.x = 175
-		if position.x < -175:
-			position.x = -175
+		queue_free()
 		return
 		
 	var collision_info = move_and_collide(velocity * delta)

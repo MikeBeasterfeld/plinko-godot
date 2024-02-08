@@ -21,3 +21,4 @@ func _process(_delta):
 func _on_area_2d_area_entered(area):
 	print("Points " + str(SCORE) + " name: " + name)
 	print(area)
+	print(area.get_parent().BALL_NAME)

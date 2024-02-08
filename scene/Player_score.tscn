@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://caucpay1gd0la"]
+
+[ext_resource type="Script" path="res://scripts/HBoxContainer.gd" id="1_pdigm"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+script = ExtResource("1_pdigm")
+
+[node name="Player" type="Label" parent="."]
+layout_mode = 2
+text = "Name"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 2
