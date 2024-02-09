@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://caucpay1gd0la"]
 
-[ext_resource type="Script" path="res://scripts/HBoxContainer.gd" id="1_pdigm"]
+[ext_resource type="Script" path="res://scripts/player-score.gd" id="1_wugsq"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
-script = ExtResource("1_pdigm")
+[node name="player-score" type="HBoxContainer"]
+offset_right = 383.0
+offset_bottom = 23.0
+script = ExtResource("1_wugsq")
 
 [node name="Player" type="Label" parent="."]
 layout_mode = 2

@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsrr36s2l4lv6"]
+[gd_scene load_steps=6 format=3 uid="uid://dsrr36s2l4lv6"]
 
 [ext_resource type="Script" path="res://scripts/gamemaster.gd" id="1_3nh02"]
 [ext_resource type="Texture2D" uid="uid://bliq8wdfoanwa" path="res://assets/tilemap.png" id="1_iuwbf"]
-[ext_resource type="PackedScene" uid="uid://jx7drwr3aftr" path="res://scene/alley.tscn" id="3_pbdlp"]
-[ext_resource type="Script" path="res://scripts/scorepanel.gd" id="4_5c2ou"]
-[ext_resource type="PackedScene" uid="uid://caucpay1gd0la" path="res://scene/Player_score.tscn" id="4_owa7m"]
+[ext_resource type="PackedScene" uid="uid://caucpay1gd0la" path="res://scene/player_score.tscn" id="4_owa7m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nh2xn"]
 texture = ExtResource("1_iuwbf")
@@ -37,65 +35,18 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, -2, 131072, 0, -65538, 0, 0, -655
 
 [node name="alleys" type="Node2D" parent="."]
 
-[node name="1" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-193, 275)
-
-[node name="2" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-161, 275)
-SCORE = 25
-
-[node name="3" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-129, 275)
-SCORE = 125
-
-[node name="4" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-97, 275)
-SCORE = 250
-
-[node name="5" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-65, 275)
-SCORE = 500
-
-[node name="6" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-33, 275)
-
-[node name="7" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(-1, 275)
-SCORE = 1000
-
-[node name="8" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(31, 275)
-
-[node name="9" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(63, 275)
-SCORE = 500
-
-[node name="10" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(95, 275)
-SCORE = 250
-
-[node name="11" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(127, 275)
-SCORE = 125
-
-[node name="12" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(159, 275)
-SCORE = 25
-
-[node name="13" parent="alleys" instance=ExtResource("3_pbdlp")]
-position = Vector2(191, 275)
-
 [node name="scorepanel" type="Panel" parent="."]
 offset_left = -666.0
-offset_top = -324.0
+offset_top = -318.0
 offset_right = -230.0
-offset_bottom = 176.0
-script = ExtResource("4_5c2ou")
+offset_bottom = 182.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="scorepanel"]
 layout_mode = 0
-offset_right = 433.0
-offset_bottom = 497.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 435.0
+offset_bottom = 498.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="scorepanel/ScrollContainer"]
 layout_mode = 2
@@ -105,3 +56,9 @@ layout_mode = 2
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-160, -278)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 19.551
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
