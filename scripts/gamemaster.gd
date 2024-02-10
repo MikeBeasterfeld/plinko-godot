@@ -73,10 +73,9 @@ func create_score(player: String, score: int) -> void:
 		
 	v_box_container.add_child(instance)
 
-func create_ball(player_name: String) -> void:
+func create_ball(player_name: String, position: int) -> void:
 	var instance: PlinkoBall = ball_scene.instantiate()
-	instance.position = Vector2(count, -295)
-	count = count + 50
+	instance.position = Vector2(position, -295)
 	instance.BALL_NAME = player_name
 	add_child(instance)
 	
@@ -85,14 +84,14 @@ func _on_timer_timeout() -> void:
 	create_balls()
 		
 func create_balls() -> void:
-	var player_names: Array = ["Amy Adams", "Bob Burgers", "Carly Car", "Daniel Den", "Emmett Ear"]
+	var player_names: Array = ["Bob Burgers"]
 	
 	player_names.shuffle()
 		
 	count = -185
 	
 	for player: String in player_names:
-		create_ball(player)
+		create_ball(player, 100)
 	
 #func find_fn(arr: Array, f: Callable):
 	#for i in range(arr.size()):

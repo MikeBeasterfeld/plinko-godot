@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsrr36s2l4lv6"]
+[gd_scene load_steps=8 format=3 uid="uid://dsrr36s2l4lv6"]
 
 [ext_resource type="Script" path="res://scripts/gamemaster.gd" id="1_3nh02"]
 [ext_resource type="Texture2D" uid="uid://bliq8wdfoanwa" path="res://assets/tilemap.png" id="1_iuwbf"]
 [ext_resource type="PackedScene" uid="uid://caucpay1gd0la" path="res://scene/player_score.tscn" id="4_owa7m"]
+[ext_resource type="Script" path="res://scripts/twitchchat.gd" id="4_qqy7p"]
+[ext_resource type="PackedScene" uid="uid://b8gtr3wmit5g" path="res://addons/twitch_irc_client/twitch_irc_client.tscn" id="5_eodoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nh2xn"]
 texture = ExtResource("1_iuwbf")
@@ -55,10 +57,19 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-160, -278)
+position = Vector2(193, -281)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 19.551
 autostart = true
 
+[node name="twitchchat" type="Node" parent="."]
+script = ExtResource("4_qqy7p")
+
+[node name="TwitchIRCClient" parent="." instance=ExtResource("5_eodoe")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="authentication_completed" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_authentication_completed"]
+[connection signal="connection_opened" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_connection_opened"]
+[connection signal="logger" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_logger"]
+[connection signal="message_received" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_message_received"]
