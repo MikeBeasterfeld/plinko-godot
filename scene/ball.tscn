@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3r6va7c7myr8"]
+[gd_scene load_steps=6 format=3 uid="uid://b3r6va7c7myr8"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_74qtl"]
 [ext_resource type="Texture2D" uid="uid://bc5g7ktf4y5it" path="res://assets/ball.png" id="2_fkbxy"]
+[ext_resource type="Script" path="res://scripts/ball_area_2d.gd" id="3_iqdpb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ushb"]
 radius = 10.989
@@ -29,6 +30,7 @@ scroll_active = false
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(-0.71, -0.71)
+script = ExtResource("3_iqdpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.715, 0.715)

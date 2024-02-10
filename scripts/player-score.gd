@@ -1,19 +1,21 @@
 extends HBoxContainer
 
-@export var player = "Some Guy"
-@export var score = "00000"
+class_name PlinkoPlayerScore
 
-@onready var player_label = $Player
-@onready var score_label = $Score
+@export var player: String = "Some Guy"
+@export var score: String = "00000"
+
+@onready var player_label: Label = $Player
+@onready var score_label: Label = $Score
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	update_labels()
 	
-func update_labels():
+func update_labels() -> void:
 	player_label.text = player
 	score_label.text = score
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta: float) -> void:
 	pass
