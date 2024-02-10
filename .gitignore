@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
+.twitch_client_id
 example/
