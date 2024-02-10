@@ -57,7 +57,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(193, -281)
+position = Vector2(189.8, -281)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 19.551
@@ -66,9 +66,13 @@ autostart = true
 [node name="twitchchat" type="Node" parent="."]
 script = ExtResource("4_qqy7p")
 
+[node name="Timer" type="Timer" parent="twitchchat"]
+autostart = true
+
 [node name="TwitchIRCClient" parent="." instance=ExtResource("5_eodoe")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="twitchchat/Timer" to="twitchchat" method="_on_timer_timeout"]
 [connection signal="authentication_completed" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_authentication_completed"]
 [connection signal="connection_opened" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_connection_opened"]
 [connection signal="logger" from="TwitchIRCClient" to="twitchchat" method="_on_twitch_irc_client_logger"]

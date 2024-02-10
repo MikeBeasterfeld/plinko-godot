@@ -73,9 +73,9 @@ func create_score(player: String, score: int) -> void:
 		
 	v_box_container.add_child(instance)
 
-func create_ball(player_name: String, position: int) -> void:
+func create_ball(player_name: String, x_position: int) -> void:
 	var instance: PlinkoBall = ball_scene.instantiate()
-	instance.position = Vector2(position, -295)
+	instance.position = Vector2(x_position, -295)
 	instance.BALL_NAME = player_name
 	add_child(instance)
 	
