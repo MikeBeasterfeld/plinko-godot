@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://crosdj8mofjxi"]
+
+[ext_resource type="Script" path="res://scripts/chaos_bar.gd" id="1_v7txc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_to152"]
+size = Vector2(63, 4)
+
+[node name="chaos_bar" type="Node2D"]
+position = Vector2(-93, 50)
+script = ExtResource("1_v7txc")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="AnimatableBody2D"]
+offset_left = -31.0
+offset_top = -2.0
+offset_right = 32.0
+offset_bottom = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_to152")
+debug_color = Color(0.227451, 0.0784314, 0.529412, 0.419608)
