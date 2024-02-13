@@ -42,7 +42,7 @@ func create_alleys() -> void:
 func add_score(area: PlinkoBallArea2D, score: int) -> void:
 	var player: String = area.get_ball_name()
 
-	if score == 0:
+	if score == 0 || player == "Bob Burgers":
 		return
 		
 	print("hit " + str(score) + " " + player)
